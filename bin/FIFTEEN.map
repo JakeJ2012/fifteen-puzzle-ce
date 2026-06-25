@@ -1,0 +1,143 @@
+Section          Base   Top    High   Length
+---------------- ------ ------ ------ -------
+.icon            D1A882 D1A996           114h
+.init.libs       D1A996 D1A9EE            58h
+.libs            D1A9EE D1AA43            55h
+.init.clock      D1AA43 D1AA43             0h
+.init.reruncheck D1AA43 D1AA43             0h
+.init            D1AA43 D1AA63            20h
+.fini            D1AA63 D1AA97            34h
+.text            D1AA97 D1D1BF          2728h
+.data            D1D1BF D1D1CF            10h
+.rodata          D1D1CF D1D3BE           1EFh
+.init_array      000000 000000             0h
+.ctors           000000 000000             0h
+.dtors           000000 000000             0h
+.fini_array      000000 000000             0h
+.bss             D052C6 D052C6 D13FD8      0h
+.header          D1A87F D1A882             3h
+
+Label                           Value
+-----------------------------   ------
+___low_bss                    = D052C6
+___len_bss                    = 000000
+___heaptop                    = D13FD8
+___heapbot                    = D052C6
+___libs                       = D1A9EE
+___init_array_count           = 000000
+___ctors_count                = 000000
+___dtors_count                = 000000
+___fini_array_count           = 000000
+__stack                       = D1A87E
+__iand                        = D1AA97
+__bshru                       = D1AAAE
+__bctlz                       = D1AAB8
+__sctlz.hijack                = D1AADA
+__ictlz                       = D1AAE1
+__llctlz                      = D1AAF3
+__i48ctlz                     = D1AB01
+__frameset                    = D1AB16
+__frameset0                   = D1AB24
+__ftod                        = D1AB2F
+__idivs                       = D1AB77
+__idvrms                      = D1AB7E
+__idvrmu                      = D1ABAC
+__imulu                       = D1ABC4
+__indcallhl                   = D1ABF4
+__ineg                        = D1ABF5
+__irems                       = D1ABFE
+__ishl                        = D1AC06
+__ishrs                       = D1AC31
+__ishru                       = D1AC2C
+__ladd                        = D1AC6D
+__lladd                       = D1AC73
+__lland                       = D1AC97
+__llcmps                      = D1ACD4
+__llcmpu                      = D1AD01
+__llcmpzero                   = D1AD2B
+__lldivu                      = D1AD40
+__lldvrmu                     = D1AD54
+__llmulu                      = D1ADB2
+__llneg                       = D1AE07
+__llshl                       = D1AE20
+__llshru                      = D1AE3A
+__llshr_common.hijack_llshru  = D1AE52
+__llshr_common.finish         = D1AE72
+__lmulu                       = D1AE76
+__lsub                        = D1AED2
+__sand                        = D1AEDC
+__setflag                     = D1AEE5
+__sshru                       = D1AEEF
+__ixor                        = D1AEFC
+_os_DisableHomeTextBuffer     = D1AF13
+_os_EnableHomeTextBuffer      = D1AF25
+_random                       = D1AF37
+__setstate                    = D1AF95
+__state                       = D1D1BF
+_boot_GetDate                 = 0005A8
+_boot_GetTime                 = 0005B0
+_mktime                       = D1AFA5
+_mktime.yday                  = D1D1CF
+__vsnprintf_c                 = D1B0A9
+_npf_bufputc                  = D1B12F
+_npf_bufputc_nop              = D1B154
+_npf_vpprintf                 = D1B15B
+JTI3_0                        = D1D1F3
+JTI3_1                        = D1D208
+JTI3_2                        = D1D26B
+JTI3_3                        = D1D295
+JTI3_4                        = D1D2B0
+JTI3_5                        = D1D2CB
+__snprintf_c                  = D1C78C
+_npf_utoa_rev                 = D1C7B4
+_.str                         = D1D2E6
+_.str.1                       = D1D2EA
+_.str.2                       = D1D2EE
+_time                         = D1C882
+__iszerol                     = D1C900
+_rand                         = D1C914
+__signbitl                    = D1C921
+_snprintf                     = D1C78C
+_srand                        = D1C929
+.missingappvar                = D1D2F2
+.libloadname                  = D1D2F7
+.libloadnamelen               = 000007
+.webaddress                   = D1D2FF
+__start                       = D1AA43
+___exithl                     = D1AA63
+skip._exit                    = D1AA63
+skip.__Exit                   = D1AA63
+skip._abort                   = D1AA63
+_exit.sp                      = D1AA64
+_exit.flash_wait_states       = D1AA6E
+_main                         = D1C931
+_newSolvedBoard               = D1CA33
+_tick                         = D1CA61
+_renderBoard                  = D1CDD3
+_swapBlankWith                = D1CF3B
+_validateBoard                = D1CFC2
+_newShuffledBoard             = D1D00F
+_printCentered                = D1D17A
+_.str                         = D1D314
+_.str.1                       = D1D323
+_.str.2                       = D1D33B
+_.str.3                       = D1D367
+_.str.4                       = D1D37B
+_.str.5                       = D1D386
+_.str.6                       = D1D3A2
+_.str.7                       = D1D3BB
+lib.LibLoad                   = D1A9EE
+_#gfx_Begin                   = D1AA01
+_#gfx_End                     = D1AA05
+_#gfx_SetColor                = D1AA09
+_#gfx_FillScreen              = D1AA0D
+_#gfx_SetDraw                 = D1AA11
+_#gfx_SwapDraw                = D1AA15
+_#gfx_PrintStringXY           = D1AA19
+_#gfx_SetTextBGColor          = D1AA1D
+_#gfx_SetTextFGColor          = D1AA21
+_#gfx_SetTextTransparentColor = D1AA25
+_#gfx_GetStringWidth          = D1AA29
+_#gfx_Rectangle               = D1AA2D
+_#gfx_FillRectangle           = D1AA31
+_#kb_Scan                     = D1AA3F
