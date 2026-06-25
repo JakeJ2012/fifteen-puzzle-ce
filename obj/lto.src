@@ -914,9 +914,9 @@ BB6_7:
 	jp	z, BB6_19
 	add	iy, de
 	ld	a, (iy)
-	ld	(ix - 12), de
-	inc	de
 	ld	(ix - 9), de
+	inc	de
+	ld	(ix - 12), de
 BB6_9:
 	push	de
 	pop	hl
@@ -930,9 +930,7 @@ BB6_9:
 	jp	BB6_15
 BB6_12:
 	ld	iy, (ix + 6)
-	push	de
-	pop	bc
-	add	iy, bc
+	add	iy, de
 	ld	c, (iy)
 	ld	a, c
 	or	a, a
@@ -961,24 +959,26 @@ BB6_15:
 	inc	de
 	jp	BB6_9
 BB6_16:
-	ld	hl, (ix - 12)
+	ld	hl, (ix - 9)
 	ld	c, 2
 	call	__ishru
 	or	a, a
 	jr	z, BB6_18
 	ld	hl, (ix - 6)
 BB6_18:
+	ld	de, (ix - 12)
 	ld	(ix - 6), hl
-	ld	de, (ix - 9)
 	jp	BB6_7
 BB6_19:
 	ld	hl, (ix - 3)
+	inc	hl
 	ld	de, (ix - 6)
-	add	hl, de
+	or	a, a
+	sbc	hl, de
 	ld	bc, 1
 	call	__iand
 	bit	0, l
-	jr	z, BB6_29
+	jr	nz, BB6_29
 	ld	bc, -1
 	ld	(ix - 3), bc
 	inc	bc

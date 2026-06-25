@@ -7,9 +7,9 @@ Section          Base   Top    High   Length
 .init.reruncheck D1AA43 D1AA43             0h
 .init            D1AA43 D1AA63            20h
 .fini            D1AA63 D1AA97            34h
-.text            D1AA97 D1D1DD          2746h
-.data            D1D1DD D1D1ED            10h
-.rodata          D1D1ED D1D3DC           1EFh
+.text            D1AA97 D1D1DE          2747h
+.data            D1D1DE D1D1EE            10h
+.rodata          D1D1EE D1D3DD           1EFh
 .init_array      000000 000000             0h
 .ctors           000000 000000             0h
 .dtors           000000 000000             0h
@@ -73,36 +73,36 @@ _os_DisableHomeTextBuffer     = D1AF13
 _os_EnableHomeTextBuffer      = D1AF25
 _random                       = D1AF37
 __setstate                    = D1AF95
-__state                       = D1D1DD
+__state                       = D1D1DE
 _boot_GetDate                 = 0005A8
 _boot_GetTime                 = 0005B0
 _mktime                       = D1AFA5
-_mktime.yday                  = D1D1ED
+_mktime.yday                  = D1D1EE
 __vsnprintf_c                 = D1B0A9
 _npf_bufputc                  = D1B12F
 _npf_bufputc_nop              = D1B154
 _npf_vpprintf                 = D1B15B
-JTI3_0                        = D1D211
-JTI3_1                        = D1D226
-JTI3_2                        = D1D289
-JTI3_3                        = D1D2B3
-JTI3_4                        = D1D2CE
-JTI3_5                        = D1D2E9
+JTI3_0                        = D1D212
+JTI3_1                        = D1D227
+JTI3_2                        = D1D28A
+JTI3_3                        = D1D2B4
+JTI3_4                        = D1D2CF
+JTI3_5                        = D1D2EA
 __snprintf_c                  = D1C78C
 _npf_utoa_rev                 = D1C7B4
-_.str                         = D1D304
-_.str.1                       = D1D308
-_.str.2                       = D1D30C
+_.str                         = D1D305
+_.str.1                       = D1D309
+_.str.2                       = D1D30D
 _time                         = D1C882
 __iszerol                     = D1C900
 _rand                         = D1C914
 __signbitl                    = D1C921
 _snprintf                     = D1C78C
 _srand                        = D1C929
-.missingappvar                = D1D310
-.libloadname                  = D1D315
+.missingappvar                = D1D311
+.libloadname                  = D1D316
 .libloadnamelen               = 000007
-.webaddress                   = D1D31D
+.webaddress                   = D1D31E
 __start                       = D1AA43
 ___exithl                     = D1AA63
 skip._exit                    = D1AA63
@@ -117,15 +117,15 @@ _renderBoard                  = D1CDF1
 _swapBlankWith                = D1CF59
 _validateBoard                = D1CFE0
 _newShuffledBoard             = D1D02D
-_printCentered                = D1D198
-_.str                         = D1D332
-_.str.1                       = D1D341
-_.str.2                       = D1D359
-_.str.3                       = D1D385
-_.str.4                       = D1D399
-_.str.5                       = D1D3A4
-_.str.6                       = D1D3C0
-_.str.7                       = D1D3D9
+_printCentered                = D1D199
+_.str                         = D1D333
+_.str.1                       = D1D342
+_.str.2                       = D1D35A
+_.str.3                       = D1D386
+_.str.4                       = D1D39A
+_.str.5                       = D1D3A5
+_.str.6                       = D1D3C1
+_.str.7                       = D1D3DA
 lib.LibLoad                   = D1A9EE
 _#gfx_Begin                   = D1AA01
 _#gfx_End                     = D1AA05
