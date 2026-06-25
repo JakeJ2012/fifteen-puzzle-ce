@@ -276,8 +276,11 @@ _tick:
 	push	de
 	call	_newShuffledBoard
 	pop	hl
+	ld	hl, (ix + 12)
+	ld	de, 0
+	ld	(hl), de
 	ld	hl, (ix + 6)
-	ld	de, 1
+	inc	de
 	ld	(hl), de
 	ld	iy, (ix + 15)
 	ld	l, (iy + 6)
@@ -319,6 +322,9 @@ BB2_6:
 	call	_newSolvedBoard
 	ld	iy, (ix + 15)
 	pop	hl
+	ld	hl, (ix + 12)
+	ld	de, 0
+	ld	(hl), de
 BB2_10:
 	ld	c, (iy + 7)
 	bit	2, c
@@ -421,6 +427,7 @@ BB2_20:
 	jp	p, BB2_22
 	ld	iy, 0
 BB2_22:
+	ld	(ix - 12), iy
 	ld	bc, (ix - 9)
 	push	bc
 	pop	hl
@@ -430,6 +437,7 @@ BB2_22:
 	call	pe, __setflag
 	push	bc
 	pop	hl
+	ld	iy, (ix + 12)
 	jp	m, BB2_24
 	ld	hl, 3
 BB2_24:
@@ -442,15 +450,15 @@ BB2_24:
 	or	a, a
 	sbc	hl, de
 	call	pe, __setflag
-	lea	de, iy
+	ld	de, (ix - 12)
 	jp	m, BB2_26
 	ld	(ix - 6), bc
 BB2_26:
-	ld	iy, (ix - 6)
-	add	iy, de
-	ld	hl, (ix + 12)
-	lea	de, iy
-	ld	(hl), iy
+	ld	hl, (ix - 6)
+	add	hl, de
+	push	hl
+	pop	de
+	ld	(iy), hl
 	ld	iy, (ix + 15)
 	ld	a, (iy + 6)
 	and	a, 1
@@ -472,8 +480,8 @@ BB2_28:
 	call	_validateBoard
 	pop	hl
 	bit	0, a
-	jr	nz, BB2_34
-	jr	BB2_35
+	jp	nz, BB2_34
+	jp	BB2_35
 BB2_29:
 	ld	hl, _.str.4
 	ld	bc, 160
@@ -525,6 +533,9 @@ BB2_31:
 	push	hl
 	call	_newShuffledBoard
 	pop	hl
+	ld	hl, (ix + 12)
+	ld	de, 0
+	ld	(hl), de
 	ld	hl, 1
 	ld	(ix - 3), hl
 BB2_34:
@@ -1093,35 +1104,6 @@ _isPressed:
 	sbc	hl, hl
 	ld	l, (iy)
 	call	__iand
-	pop	ix
-	ret
-	section	.text,"ax",@progbits
-
-	section	.text,"ax",@progbits
-	public	_isHeldPress
-_isHeldPress:
-	call	__frameset0
-	ld	iy, (ix + 6)
-	ld	bc, (ix + 12)
-	ld	de, (ix + 15)
-	or	a, a
-	sbc	hl, hl
-	add	iy, bc
-	ld	a, (iy)
-	and	a, e
-	or	a, a
-	jr	z, BB10_4
-	ld	hl, (ix + 9)
-	add	hl, bc
-	ld	a, (hl)
-	and	a, e
-	or	a, a
-	jr	nz, BB10_3
-	ld	hl, 0
-	jr	BB10_4
-BB10_3:
-	ld	hl, 1
-BB10_4:
 	pop	ix
 	ret
 	section	.text,"ax",@progbits

@@ -93,6 +93,7 @@ void tick(gameState *state, uint8_t board[16], int *selected, uint8_t keys[8], u
         {
             *state = NOT_PLAYING;
             newSolvedBoard(board);
+            *selected = 0;
         }
 
         int dx = (int)isNewPress(keys, lastKeys, 7, kb_Right) - (int)isNewPress(keys, lastKeys, 7, kb_Left);
@@ -145,6 +146,7 @@ void tick(gameState *state, uint8_t board[16], int *selected, uint8_t keys[8], u
         if (isNewPress(keys, lastKeys, 6, kb_Enter))
         {
             newShuffledBoard(board);
+            *selected = 0;
             *state = PLAYING;
         }
         if (isNewPress(keys, lastKeys, 6, kb_Clear))
@@ -160,6 +162,7 @@ void tick(gameState *state, uint8_t board[16], int *selected, uint8_t keys[8], u
             *state = EXITING;
         } else if (isNewPress(keys, lastKeys, 6, kb_Enter)) {
             newShuffledBoard(board);
+            *selected = 0;
             *state = PLAYING;
         }
 
@@ -285,11 +288,6 @@ int isNewPress(uint8_t keys[8], uint8_t lastKeys[8], int index, int mask)
 int isPressed(uint8_t keys[8], int index, int mask)
 {
     return (keys[index] & mask);
-}
-
-int isHeldPress(uint8_t keys[8], uint8_t lastKeys[8], int index, int mask)
-{
-    return (keys[index] & mask) && (lastKeys[index] & mask);
 }
 
 void newSolvedBoard(uint8_t board[16])
