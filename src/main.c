@@ -255,7 +255,7 @@ void newShuffledBoard(uint8_t board[16])
 
     int fromBottom = 3 - blankRow;
 
-    if (!((fromBottom + inversions) % 2))
+    if (((fromBottom + inversions) % 2))
     {
         int i1 = -1;
         int i2 = -1;

@@ -989,7 +989,7 @@ BB6_19:
 	ld	bc, 1
 	call	__iand
 	bit	0, l
-	jr	nz, BB6_29
+	jr	z, BB6_29
 	ld	bc, -1
 	ld	(ix - 3), bc
 	inc	bc
