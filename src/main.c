@@ -75,7 +75,6 @@ void tick(gameState *state, uint8_t board[16], int *selected, uint8_t keys[8], u
 
     gfx_SetColor(138);
 
-
     gfx_SetTextFGColor(0);
     gfx_SetTextBGColor(1);
     gfx_SetTextTransparentColor(1);
@@ -96,50 +95,54 @@ void tick(gameState *state, uint8_t board[16], int *selected, uint8_t keys[8], u
             *selected = 0;
         }
 
-        int dx = (int)isNewPress(keys, lastKeys, 7, kb_Right) - (int)isNewPress(keys, lastKeys, 7, kb_Left);
-        int dy = (int)isNewPress(keys, lastKeys, 7, kb_Down) - (int)isNewPress(keys, lastKeys, 7, kb_Up);
-
-        int y = *selected / 4;
-        int x = *selected % 4;
-
-        x += dx;
-        y += dy;
-
-        if (x < 0)
+        if (*state == PLAYING)
         {
-            x = 0;
-        }
-        else if (x > 3)
-        {
-            x = 3;
-        }
 
-        if (y < 0)
-        {
-            y = 0;
-        }
-        else if (y > 3)
-        {
-            y = 3;
-        }
+            int dx = (int)isNewPress(keys, lastKeys, 7, kb_Right) - (int)isNewPress(keys, lastKeys, 7, kb_Left);
+            int dy = (int)isNewPress(keys, lastKeys, 7, kb_Down) - (int)isNewPress(keys, lastKeys, 7, kb_Up);
 
-        int i = 4 * y + x;
+            int y = *selected / 4;
+            int x = *selected % 4;
 
-        *selected = i;
+            x += dx;
+            y += dy;
 
-        if (isNewPress(keys, lastKeys, 6, kb_Enter) || isNewPress(keys, lastKeys, 1, kb_2nd))
-        {
-            swapBlankWith(*selected, board);
-        }
+            if (x < 0)
+            {
+                x = 0;
+            }
+            else if (x > 3)
+            {
+                x = 3;
+            }
 
-        bool isSolved = validateBoard(board);
+            if (y < 0)
+            {
+                y = 0;
+            }
+            else if (y > 3)
+            {
+                y = 3;
+            }
 
-        if (isSolved)
-        {
-            *state = JUST_COMPLETED;
+            int i = 4 * y + x;
+
+            *selected = i;
+
+            if (isNewPress(keys, lastKeys, 6, kb_Enter) || isNewPress(keys, lastKeys, 1, kb_2nd))
+            {
+                swapBlankWith(*selected, board);
+            }
+
+            bool isSolved = validateBoard(board);
+
+            if (isSolved)
+            {
+                *state = JUST_COMPLETED;
+            }
         }
     }
-    else if (*state == NOT_PLAYING) 
+    else if (*state == NOT_PLAYING)
     {
         renderBoard(board, *selected, false);
 
@@ -153,19 +156,23 @@ void tick(gameState *state, uint8_t board[16], int *selected, uint8_t keys[8], u
         {
             *state = EXITING;
         }
-    } else {
+    }
+    else
+    {
         printCentered("Completed!", 160, 50);
         printCentered("Press [Enter] to play again", 160, 120);
         printCentered("or press [Clear] to exit", 160, 130);
 
-        if (isNewPress(keys, lastKeys, 6, kb_Clear)) {
+        if (isNewPress(keys, lastKeys, 6, kb_Clear))
+        {
             *state = EXITING;
-        } else if (isNewPress(keys, lastKeys, 6, kb_Enter)) {
+        }
+        else if (isNewPress(keys, lastKeys, 6, kb_Enter))
+        {
             newShuffledBoard(board);
             *selected = 0;
             *state = PLAYING;
         }
-
     }
 }
 
@@ -266,7 +273,8 @@ void newShuffledBoard(uint8_t board[16])
             {
                 if (i1 == -1)
                     i1 = i;
-                else {
+                else
+                {
                     i2 = i;
                     break;
                 }
