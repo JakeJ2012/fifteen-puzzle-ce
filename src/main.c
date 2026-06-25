@@ -127,7 +127,7 @@ void tick(gameState *state, uint8_t board[16], int *selected, uint8_t keys[8], u
 
         *selected = i;
 
-        if (isNewPress(keys, lastKeys, 6, kb_Enter))
+        if (isNewPress(keys, lastKeys, 6, kb_Enter) || isNewPress(keys, lastKeys, 1, kb_2nd))
         {
             swapBlankWith(*selected, board);
         }
