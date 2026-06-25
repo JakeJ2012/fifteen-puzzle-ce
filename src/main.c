@@ -253,10 +253,9 @@ void newShuffledBoard(uint8_t board[16])
         }
     }
 
-    int fromBottom = 3-blankRow;
+    int fromBottom = 3 - blankRow;
 
     if (!((fromBottom + inversions) % 2))
-
     {
         int i1 = -1;
         int i2 = -1;
@@ -266,11 +265,8 @@ void newShuffledBoard(uint8_t board[16])
             if (board[i] != 0)
             {
                 if (i1 == -1)
-                {
                     i1 = i;
-                }
-                else
-                {
+                else {
                     i2 = i;
                     break;
                 }
