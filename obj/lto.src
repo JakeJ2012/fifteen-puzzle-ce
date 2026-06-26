@@ -820,46 +820,38 @@ BB4_11:
 	section	.text,"ax",@progbits
 	public	_validateBoard
 _validateBoard:
-	ld	hl, -3
-	call	__frameset
+	call	__frameset0
 	ld	iy, (ix + 6)
-	ld	bc, 0
 	xor	a, a
+	ld	bc, 0
+	ld	de, 15
 BB5_1:
 	push	bc
 	pop	hl
-	ld	de, 15
 	or	a, a
 	sbc	hl, de
-	jr	z, BB5_3
+	jr	z, BB5_4
 	lea	hl, iy
 	add	iy, bc
-	ld	de, 0
 	ld	e, (iy)
 	push	hl
 	pop	iy
-	dec	de
-	ld	(ix - 3), de
 	inc	bc
-	push	bc
-	pop	de
-	dec	de
-	ex	de, hl
-	ld	de, (ix - 3)
-	or	a, a
-	sbc	hl, de
+	inc	a
+	cp	a, e
+	ld	de, 15
 	jr	z, BB5_1
-	jr	BB5_6
-BB5_3:
+	xor	a, a
+	jr	BB5_7
+BB5_4:
 	ld	a, (iy + 15)
 	or	a, a
-	jr	nz, BB5_5
+	jr	z, BB5_6
 	ld	a, 0
-	jr	BB5_6
-BB5_5:
-	ld	a, -1
+	jr	BB5_7
 BB5_6:
-	pop	hl
+	ld	a, -1
+BB5_7:
 	pop	ix
 	ret
 	section	.text,"ax",@progbits

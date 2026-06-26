@@ -336,18 +336,11 @@ bool validateBoard(uint8_t board[16])
 {
     for (int i = 0; i < 15; i++)
     {
-        if (!(i == (board[i] - 1)))
+        if (board[i] != (uint8_t)(i + 1))
         {
             return false;
         }
     }
 
-    if (!board[15])
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
+    return board[15] == 0;
 }
